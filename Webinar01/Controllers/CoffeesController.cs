@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webinar01.Data;
 using Webinar01.Models;
+using System.Net.Http;
 
 namespace Webinar01.Controllers
 {
@@ -40,7 +41,27 @@ namespace Webinar01.Controllers
         // GET: Coffees/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new CoffeCreate()
+            {
+                Companies = new List<Company>()
+                {
+                    new Company
+                    {
+                        CompanyName = "mahmut",
+                        Id = 1
+                    },
+                    new Company
+                    {
+                        CompanyName = "mahmut2",
+                        Id = 2
+                    },
+                    new Company
+                    {
+                        CompanyName = "mahmut3",
+                        Id = 3
+                    }
+                }
+            });
         }
 
         // POST: Coffees/Create

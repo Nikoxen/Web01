@@ -1,4 +1,4 @@
-﻿@model Webinar01.Models.Coffee
+﻿@model Webinar01.Models.CoffeCreate
 
 @{
     ViewBag.Title = "Create";
@@ -16,28 +16,26 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Coffee.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Coffee.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Coffee.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Volume, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Coffee.Volume, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Volume, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Volume, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Coffee.Volume, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Coffee.Volume, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CompanyId, "CompanyId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @ViewBag.CompanyId as SelectList
-                
-                @Html.DropDownList("CompanyId", (SelectList)ViewData["CompanyId"], htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CompanyId, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.Companies, "Compaines", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                @Html.DropDownList("CompanyName", new SelectList(ViewData.Model.Companies, "Id", "CompanyName"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Companies, "", new { @class = "text-danger" })
             </div>
         </div>
 
